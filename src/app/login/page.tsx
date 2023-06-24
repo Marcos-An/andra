@@ -69,7 +69,6 @@ export default function Login() {
           />
           <Title size="2xl">Olá usuário </Title>
           <br />
-          <br />
           <Input
             icon={<EnvelopeSimple />}
             value={email}

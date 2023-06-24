@@ -95,12 +95,12 @@ export default function Dashboard() {
     <div>
       <Title>Tela de listagem</Title>
       <br />
-      <div className="flex justify-between">
+      <div className="flex flex-col md:items-center md:justify-between sm:flex-row sm:items-baseline ">
         <Button onClick={() => dialogCreateRef.current?.handleModal()}>
           <Plus /> Incluir operação
         </Button>
 
-        <div className="lg:w-1/4 md:w-2/3">
+        <div className="lg:w-1/4 md:w-2/6 ">
           <Input
             placeholder="Pesquisar"
             appendIcon={<MagnifyingGlass />}
@@ -128,9 +128,9 @@ export default function Dashboard() {
           </thead>
           <tbody>
             {opretations.map((operation) => (
-              <tr key={operation.id} className="border-b border-gray-300 ">
-                <td className="py-7 pl-2">{operation.id}</td>
-                <td>{operation.nmNatOperacao}</td>
+              <tr key={operation.id} className="border-b border-gray-300">
+                <td className="py-7 pr-5">{operation.id}</td>
+                <td className="pr-5">{operation.nmNatOperacao}</td>
                 <td>{RemoveSpecialCharacters(operation.alias_tpEstoque)}</td>
                 <td>{RemoveSpecialCharacters(operation.alias_tpFinanceiro)}</td>
                 <td className="justify-self-end pr-2">
