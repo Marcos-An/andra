@@ -72,7 +72,6 @@ export default function Dashboard() {
 
   const editOperationalItem = (operationalList: operationalListItemsType[]) => {
     api.put("/natoperacao/alterar", { lista: operationalList }).then((res) => {
-      console.log(res);
       dialogEditRef.current?.handleModal();
       SuccessNotification("Operaçãos salva com sucesso!");
       getItems("");
@@ -95,7 +94,7 @@ export default function Dashboard() {
     <div>
       <Title>Tela de listagem</Title>
       <br />
-      <div className="flex flex-col md:items-center md:justify-between sm:flex-row sm:items-baseline ">
+      <div className="flex flex-col md:items-center md:justify-between sm:flex-row sm:items-baseline">
         <Button onClick={() => dialogCreateRef.current?.handleModal()}>
           <Plus /> Incluir operação
         </Button>

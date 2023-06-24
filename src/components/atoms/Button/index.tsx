@@ -20,7 +20,7 @@ export const Button = ({
   ...rest
 }: props) => {
   const buttonStyles = {
-    ghost: `border border-transparent text-${size} bg-transparent hover:bg-gray-100`,
+    ghost: `border border-transparent text-${size} bg-transparent hover:bg-gray-200 dark:bg-opacity-10`,
     solid: `bg-green text-white text-${size} hover:bg-opacity-90`,
     outlined: `border-solid border border-primary text-${size}`,
   };
@@ -31,7 +31,8 @@ export const Button = ({
       className={
         `flex items-center gap-2 justify-center py-2 px-4 rounded focus:outline-none min-w-max ${
           buttonStyles[variant]
-        } ${fullWidth && "w-full"} disabled:bg-gray-300 max-h-10 ` +
+        } ${fullWidth && "w-full"} disabled:bg-gray-300 max-h-10` +
+        " " +
         rest.className
       }
     >

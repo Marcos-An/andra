@@ -40,7 +40,7 @@ export const CreateOperations = ({
   return (
     <>
       <form onSubmit={addItem} className="flex flex-col w-full gap-2">
-        <div className="flex flex-col md:grid md:grid-cols-3 gap-2 border-b border-gray-300 mb-3">
+        <div className="flex flex-col md:grid md:grid-cols-3 gap-2 border-b border-gray-300 mb-3 ">
           <Input
             label="Descrição"
             required
@@ -96,7 +96,11 @@ export const CreateOperations = ({
           </div>
         ) : null}
         <br />
-        <Button variant="ghost" type="submit" className="text-blue">
+        <Button
+          variant="ghost"
+          type="submit"
+          className="text-blue dark:text-gray-300  dark:bg-gray-200 dark:hover:bg-opacity-30 "
+        >
           + Adicionar Nova Operação
         </Button>
       </form>

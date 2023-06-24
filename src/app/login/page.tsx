@@ -49,7 +49,7 @@ export default function Login() {
 
   return (
     <div className="grid grid-cols-1 h-screen md:grid-cols-2">
-      <div className="bg-primary hidden items-center justify-center  md:flex ">
+      <div className="hidden items-center justify-center md:flex bg-[url('/images/pattern.png')]">
         <Image
           alt="logo"
           src={"/images/logobranco.png"}
@@ -69,39 +69,41 @@ export default function Login() {
           />
           <Title size="2xl">Olá usuário </Title>
           <br />
-          <Input
-            icon={<EnvelopeSimple />}
-            value={email}
-            label="Email"
-            onChange={({ target }) => {
-              setEmail(target.value);
-            }}
-          />
-          <Input
-            icon={<Lock />}
-            value={password}
-            appendIcon={
-              isTypePassword ? (
-                <Eye
-                  size={20}
-                  onClick={() => setIsTypePassword(!isTypePassword)}
-                />
-              ) : (
-                <EyeClosed
-                  size={20}
-                  onClick={() => setIsTypePassword(!isTypePassword)}
-                />
-              )
-            }
-            label="Senha"
-            type={isTypePassword ? "password" : "text"}
-            onChange={({ target }) => {
-              setPassword(target.value);
-            }}
-          />
-          <Button isLoading={isLoading} onClick={handleLogin} fullWidth>
-            ENTRAR
-          </Button>
+          <div className="flex flex-col gap-3">
+            <Input
+              icon={<EnvelopeSimple />}
+              value={email}
+              label="Email"
+              onChange={({ target }) => {
+                setEmail(target.value);
+              }}
+            />
+            <Input
+              icon={<Lock />}
+              value={password}
+              appendIcon={
+                isTypePassword ? (
+                  <Eye
+                    size={20}
+                    onClick={() => setIsTypePassword(!isTypePassword)}
+                  />
+                ) : (
+                  <EyeClosed
+                    size={20}
+                    onClick={() => setIsTypePassword(!isTypePassword)}
+                  />
+                )
+              }
+              label="Senha"
+              type={isTypePassword ? "password" : "text"}
+              onChange={({ target }) => {
+                setPassword(target.value);
+              }}
+            />
+            <Button isLoading={isLoading} onClick={handleLogin} fullWidth>
+              ENTRAR
+            </Button>
+          </div>
         </div>
       </div>
     </div>

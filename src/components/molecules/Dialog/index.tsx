@@ -60,7 +60,7 @@ const DialogCenter: React.ForwardRefRenderFunction<DialogHandlers, props> = (
           </Transition.Child>
 
           <div
-            className="bg-white rounded-lg p-5 w-11/12 lg:w-2/5 md:w-3/4 sm:w-4/5 z-20"
+            className="bg-white rounded-lg p-5 w-11/12 lg:w-2/5 md:w-3/4 sm:w-4/5 z-20 dark:bg-gray-500"
             ref={dialogRef}
           >
             {title ? (

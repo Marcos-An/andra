@@ -4,15 +4,13 @@ type TextType = {
 };
 
 export function Title({ children, size = "md" }: TextType) {
-  return (
-    <h1 className={`text-${size} text-black font-semibold`}>{children}</h1>
-  );
-}
+  const style = `text-${size} text-black font-semibold dark:text-white`;
 
-export function Paragraph({ children, size = "md" }: TextType) {
-  return <p className={`text-${size} text-gray-500 `}>{children}</p>;
+  return <h1 className={style}>{children}</h1>;
 }
 
 export function Subtitle({ children, size = "md" }: TextType) {
-  return <h2 className={`text-${size} text-black`}>{children}</h2>;
+  return (
+    <h2 className={`text-${size} text-black dark:text-white`}>{children}</h2>
+  );
 }

@@ -9,8 +9,8 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input = ({ icon, appendIcon, label, error, ...rest }: InputProps) => {
   return (
-    <div className="mb-2">
-      <label className="flex gap-2 items-center text-gray-600 mb-1">
+    <div className="mb-2 h">
+      <label className="flex gap-2 items-center text-gray-600 mb-3 dark:text-white">
         {icon || null}
         <p>{label}</p>
       </label>
@@ -19,7 +19,7 @@ const Input = ({ icon, appendIcon, label, error, ...rest }: InputProps) => {
           <input
             className={`border-2 p-2 rounded border-gray-300 focus:border-primary w-full pr-10 ${
               error ? "border-red" : ""
-            }`}
+            } dark:bg-gray-600`}
             {...rest}
           />
           {appendIcon && (
