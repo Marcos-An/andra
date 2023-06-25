@@ -41,6 +41,8 @@ export const Header = () => {
         <Image
           alt="logo"
           src={"/images/logobranco.png"}
+          loading="eager"
+          priority={true}
           width={100}
           height={100}
         />

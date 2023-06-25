@@ -53,6 +53,8 @@ export default function Login() {
         <Image
           alt="logo"
           src={"/images/logobranco.png"}
+          loading="eager"
+          priority={true}
           width={300}
           height={300}
         />
@@ -64,6 +66,8 @@ export default function Login() {
             alt="logo"
             src={"/images/logoazul.png"}
             className="absolute  top-20  left-1/2  -translate-x-1/2 md:hidden"
+            loading="eager"
+            priority={true}
             width={200}
             height={200}
           />

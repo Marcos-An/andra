@@ -1,25 +1,21 @@
 "use client";
 import api from "@/axios/api";
 import { Button } from "@/components/atoms/Button";
+import { Checkbox } from "@/components/atoms/Checkbox";
 import Input from "@/components/atoms/Input";
 import { Subtitle, Title } from "@/components/atoms/Text";
 import { SuccessNotification } from "@/components/atoms/Toast";
 import { CreateOperations } from "@/components/molecules/CreateOperations";
 import Dialog, { DialogHandlers } from "@/components/molecules/Dialog";
 import { EditOperations } from "@/components/molecules/EditOperations";
+import Table from "@/components/molecules/Table";
 import { useDebounce } from "@/hooks/useDebounce";
 import {
   operationItemType,
   operationalListItemsType,
 } from "@/types/operational";
-import { RemoveSpecialCharacters } from "@/utils/format";
-import {
-  MagnifyingGlass,
-  PencilSimple,
-  Plus,
-  TrashSimple,
-} from "@phosphor-icons/react";
-import { useEffect, useRef, useState } from "react";
+import { MagnifyingGlass, Plus, TrashSimple } from "@phosphor-icons/react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function Dashboard() {
   const [search, setSearch] = useState("");
@@ -29,6 +25,9 @@ export default function Dashboard() {
   const [itemSelected, setItemSelected] = useState<operationItemType>(
     {} as operationItemType
   );
+  const [selectedOperations, setSelectedOperations] = useState<
+    operationItemType[]
+  >([]);
 
   const dialogCreateRef = useRef<DialogHandlers>(null);
   const dialogEditRef = useRef<DialogHandlers>(null);
@@ -36,6 +35,47 @@ export default function Dashboard() {
 
   const headers = ["ID", "Descrição", "Estoque", "Financeiro", "Ações"];
 
+  useEffect(() => {
+    getItems(debouncedValue);
+  }, [debouncedValue]);
+
+  //HANDLE SELECTION FROM CHECKBOX
+  const selectItemToEdit = (operation: operationItemType) => {
+    setItemSelected(operation);
+    dialogEditRef.current?.handleModal();
+  };
+
+  const isAllItemsSelected = useCallback(() => {
+    if (selectedOperations.length) {
+      return true;
+    }
+    return false;
+  }, [selectedOperations]);
+
+  const selectOperation = (
+    isChecked: boolean,
+    operation: operationItemType
+  ) => {
+    if (!isChecked) {
+      const selectedOperationsFiltred = selectedOperations.filter(
+        (op) => op.id !== operation.id
+      );
+      setSelectedOperations([...selectedOperationsFiltred]);
+      return;
+    }
+
+    setSelectedOperations([...selectedOperations, operation]);
+  };
+
+  const handleSelectAll = () => {
+    if (selectedOperations.length) {
+      setSelectedOperations([]);
+      return;
+    }
+    setSelectedOperations([...opretations]);
+  };
+
+  // HTTP REQUESTS
   const getItems = (value: string) => {
     api
       .post("/natoperacao/pesquisar", {
@@ -56,10 +96,6 @@ export default function Dashboard() {
       });
   };
 
-  useEffect(() => {
-    getItems(debouncedValue);
-  }, [debouncedValue]);
-
   const createOperationalItem = (
     operationalList: operationalListItemsType[]
   ) => {
@@ -78,14 +114,24 @@ export default function Dashboard() {
     });
   };
 
-  const removeOperationalItem = () => {
+  const removeOperationalItems = () => {
+    const listToRemove = selectedOperations.map((op) => {
+      return {
+        idLista: 1,
+        id: op.id,
+      };
+    });
+
     api
       .delete("/natoperacao/excluir", {
-        lista: [{ idLista: 1, id: itemSelected.id }],
-      } as any)
+        data: {
+          lista: [...listToRemove],
+        },
+      })
       .then((res) => {
         dialogDeleteRef.current?.handleModal();
         SuccessNotification("Operações deletada com sucesso!");
+        setSelectedOperations([]);
         getItems("");
       });
   };
@@ -109,59 +155,31 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full text-left mt-8">
-          <thead>
-            <tr className="border-b">
-              {headers.map((header) => (
-                <th
-                  key={header}
-                  className={`py-6 px-2 ${
-                    header === "Ações" && "text-right pr-6"
-                  }`}
-                >
-                  {header}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {opretations.map((operation) => (
-              <tr key={operation.id} className="border-b border-gray-300">
-                <td className="py-7 pr-5">{operation.id}</td>
-                <td className="pr-5">{operation.nmNatOperacao}</td>
-                <td>{RemoveSpecialCharacters(operation.alias_tpEstoque)}</td>
-                <td>{RemoveSpecialCharacters(operation.alias_tpFinanceiro)}</td>
-                <td className="justify-self-end pr-2">
-                  <div className="flex items-center justify-end">
-                    <Button
-                      variant="ghost"
-                      onClick={() => {
-                        setItemSelected(operation);
-                        dialogEditRef.current?.handleModal();
-                      }}
-                    >
-                      <PencilSimple />
-                      Editar
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      className="text-red hover:bg-red hover:bg-opacity-10"
-                      onClick={() => {
-                        setItemSelected(operation);
-                        dialogDeleteRef.current?.handleModal();
-                      }}
-                    >
-                      <TrashSimple />
-                      Excluir
-                    </Button>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="flex justify-end w-full h-14 py-2 mt-8 cursor-pointer">
+        {selectedOperations.length ? (
+          <Button
+            variant="ghost"
+            className="text-red hover:bg-red hover:bg-opacity-10 mr-4"
+            onClick={() => dialogDeleteRef.current?.handleModal()}
+          >
+            <TrashSimple weight="bold" />
+            Excluir
+          </Button>
+        ) : null}
+        <Checkbox
+          showClearIcon
+          isChecked={isAllItemsSelected()}
+          onChange={handleSelectAll}
+        />
       </div>
+
+      <Table
+        headers={headers}
+        opretations={opretations}
+        selectOperation={selectOperation}
+        selectedOperations={selectedOperations}
+        onEdit={selectItemToEdit}
+      />
 
       <Dialog ref={dialogCreateRef} title="Adicionando Operação">
         <CreateOperations handleSave={createOperationalItem} />
@@ -177,11 +195,11 @@ export default function Dashboard() {
 
       <Dialog ref={dialogDeleteRef}>
         <div className="text-center">
-          <Title size="lg">Excluindo Operação</Title>
+          <Title size="lg">Excluindo operações</Title>
           <br />
           <Subtitle>
-            Esta ação exluirá a operação:{" "}
-            <strong>{itemSelected.nmNatOperacao}</strong>
+            Esta ação exluirá <strong>{selectedOperations.length}</strong>{" "}
+            operações
           </Subtitle>
           <br />
           <hr className="border-gray-400" />
@@ -189,9 +207,12 @@ export default function Dashboard() {
           <Button
             className="bg-red mb-3"
             fullWidth
-            onClick={removeOperationalItem}
+            onClick={() => {
+              console.log("delete");
+              removeOperationalItems();
+            }}
           >
-            EXCLUIR <TrashSimple />
+            EXCLUIR
           </Button>
           <Button
             variant="ghost"
