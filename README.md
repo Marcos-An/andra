@@ -1,40 +1,54 @@
-<!-- [![](./images/logoazul.png)](https://www.andrasistemas.com.br) -->
-<h1 align="center">
-  <a href="https://www.andrasistemas.com.br">
-    <img alt="Logo moveit" src="./images/logoazul.png" width="400px" />
+<div id="top"></div>
+
+<div align="center">
+   <a href="#">
+      <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" /> 
   </a>
-</h1>
+   <a href="#">
+      <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />    
+   </a>
+   <a href="#">
+     <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+   </a> 
+   <a href="#">
+      <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+   </a>
+   <a href="https://www.linkedin.com/in/marcos-antonio-579370160/" target="_blank">
+      <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+    </a>
+</div>
+<br/>
+ 
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Tabela de conteudos</summary>
+  <ol>
+    <li>
+      <a href="#sobre-o-projeto">Sobre o projeto</a> 
+    </li>
+    <li><a href="#features">Features</a></li> 
+    <li>
+      <a href="#getting-started">Getting Started</a> 
+    </li>  
+    <li><a href="#feito-com">Feito com</a></li>
+    <li><a href="#contato">Contato</a></li> 
+    <li><a href="#license">Lisence</a></li> 
+  </ol>
+</details>
 
-<p align="center">
- <a href="#projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
- <a href="#docapi">Documentação da API</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
- <a href="#instrucoes">Instruções</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
- <a href="#funcionalidades">Funcionalidades</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
- <a href="#tecnologia">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
- <a href="#prazo">Prazo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
- <a href="#entrega">Entrega</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
- <a href="#bonus">Bônus</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
- <a href="#avaliacao">Avaliação</a>
-</p>
+<!-- SOBRE O PROJETO -->
 
-<a id="projeto"></a><br>
+## Sobre o projeto
 
-# Teste para candidatos à vaga de Desenvolvedor NextJS Pleno
+<a href="https://andra.vercel.app/" target="_blank">
+  <img src="public/images/screen.png" alt="screen">
+</a> 
 
-Olá caro desenvolvedor, nesse teste analisaremos seu conhecimento geral.
+Andra é um sistema proposto pela empresa Andra!
 
-Abaixo explicaremos tudo o que será necessário.
-
-<a id="docapi"></a><br>
-
-## Documentação da API
-
-Todas as informações necessárias para acessar a API estão no arquivo **[API-privada-OpenAPI.yaml](./api/API-privada-OpenAPI.yaml)** localizado na pasta **api** deste projeto.
-
-<a id="instrucoes"></a><br>
-
-## Instruções
-
+  
+### Tomei a liberdade de alterar algumas coisas para demonstrar melhor o meu conhecimento, ao invés de usar uma lib criar os meus próprios componentes e alterar o design dado inicialmente! 
+  
 A proposta consiste em implementar uma aplicação web utilizando o framework NextJS que terá como finalidade desenvolver um CRUD (Create, Read, Update, Delete) para naturezas da operação.
 
 Sua aplicação deverá possuir:
@@ -44,97 +58,89 @@ Sua aplicação deverá possuir:
   - Implementar validações de campos obrigatórios e tipos de dados conforme documentação da API.
 - Grade de pesquisa:
   - Deve ser ordenável por qualquer coluna, e possuir paginação de 20 itens.
+<br>
+<a href="https://noemia.vercel.app/" target="_blank">
+  Teste você mesmo!
+</a>
 
-<a id="funcionalidades"></a><br>
+  
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-## Funcionalidades
 
-Deverá ter uma tela inicial com um formulário de login que aceita E-Mail e Senha, ao clicar no botão ENTRAR, o usuário acessa a aplicação.
+<!-- FEATURES -->
 
-Como não haverá cadastro de usuários, para autenticação utilizar E-Mail e Senha conforme abaixo:
+## Features
 
-- E-Mail: **testevagas@andrasistemas.com.br**
-- Senha: **frontendpleno**
+- [x] Criação, Edição e Delete das naturezas da operação 
+- [x] Página inicial com a listagem
+- [x] Paginação da listagem
+- [x] Eclusão em lotes 
+- [x] Inclusão em lotes
+- [x] Dark theme
+- [ ] PWA
 
-![Tela de Login](./layout/teladelogin.png)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Após feito o login, o usuário deverá ser direcionado para a tela de pesquisa, onde deverá ser possível realizar a inclusão, a pesquisa e a saída do sistema.
 
-Ao sair do sistema o usuário deverá ser direcinado para a tela de login.
+<!-- GETTING STARTED -->
 
-![Tela de Pesquisa](./layout/teladepesquisa.png)
+## Getting Started
 
-Ao clicar no botão para incluir o usuário deverá ser direcionado para a tela de manutenção com os campos em branco para que sejam preenchidos.
+### Instalação e rodando localmente
+ 
+1. Clone o repositório
+   ```bash
+   
+   git clone git@github.com:Marcos-An/andra.git || https://github.com/Marcos-An/andra.git
+   
+   ```
+2. Instale yarn/npm pacotes
+   ```bash
+   
+   yarn || npm install 
+   
+   ```
+3. Be happy!
+   
 
-![Tela de Manutenção](./layout/telademanutencao.png)
+<p align="right">(<a href="#top">back to top</a>)</p>
+ 
 
-Na tela de manutenção ao clicar no botão Confirmar o registro deve ser incluído, emitindo uma mensagem de sucesso, e se clicar no botão Cancelar deve ser emitida uma mensagem se o usuário relamente deseja abandonar a operação.
+<!-- FEITO COM -->
 
-Confirmando ou abandonando a operação o usuário deverá ser redirecionado para a tela de pesquisa.
+## Feito com
 
-Na tela de pesquisa tem o campo de pesquisa que digitando a descrição da natureza da operação e após clicar na lupa deverá ser realizado um filtro, trazendo os registros da API que serão apresentados na grade e em cada registro haverão 2 botões para excluir e alterar.
+-   [React](https://pt-br.reactjs.org/)
+-   [Next.js](https://nextjs.org/)
+-   [Vercel](https://vercel.com) 
+-   [TailWind](https://tailwindcss.com) 
+-   [HeadlessUI](https://headlessui.com/)
 
-Ao clicar no botão para excluir deverá emitir uma mensagem solicitando a confirmação da exclusão.
 
-Ao clicar no botão para alterar deverá ser direcionado para a tela de manutenção com os campos da grade permitindo a alteração dos mesmos.
+<!-- CONTATO -->
 
-<a id="tecnologia"></a><br>
+## Contato
+<a href="https://www.linkedin.com/in/marcos-antonio-579370160/" target="_blank">
+  <img src="https://avatars.githubusercontent.com/u/42773135?v=4" width="100px" alt="Marcos Silva"/>
+  <p>Marcos Silva</p>
+</a>
+<br /> 
+<div >
+     <a href="https://www.linkedin.com/in/marcos-antonio-579370160/" target="_blank">
+      <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+    </a>
+   <a href="mailto:marcos.silva.0556@gmail.com" target="_blank">
+      <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+    </a>
 
-## Tecnologias
+</div> 
 
-Devem ser utilizadas as seguintes tecnologias:
+<!-- LICENSE -->
 
-- HTML 5
-- CSS 3
-- Javascript
-- NextJS
-- ReactJS
-- Material UI
-- JSON Web Token
-- SweetAlert2
+## License
 
-<a id="prazo"></a><br>
+Distributed under the MIT License. See <a href="https://github.com/Marcos-An/noemia/blob/main/LICENSE" target="_blank"> MIT </a> for more information.
 
-## Prazo
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Tempo para desenvolver a solução e nos enviar a partir da data da liberação desta proposta.
 
-- Para vaga de Júnior: 7 dias.
-- Para vaga de Pleno: 5 dias.
-- Para vaga de Sênior: 3 dias.
-
-<a id="entrega"></a><br>
-
-## Entrega
-
-- Crie o projeto no seu repositório privado ou público preferido (GitHub, GitLab)
-- Ao finalizar adicione no README.md as informações necessárias para executar o seu projeto (comandos, etc)
-- Compacte-o e envie o ZIP no e-mail danny@andrasistemas.com.br
-- Anexe também neste e-mail seu currículo
-
-<a id="bonus"></a><br>
-
-## Bônus
-
-- Permitir exclusão de registros em massa por lote.
-- Permitir que o usuário mude o número de itens por página.
-- Testes unitários.
-- Dark Mode.
-- Qualquer funcionalidade extra é bem vinda para agregar na solução básica proposta.
-
-<a id="avaliacao"></a><br>
-
-## Avaliação
-
-Entre os critérios de avaliação estão:
-
-- Organização do código
-- Separação de módulos e componentes
-- Legibilidade
-- Comentários
-- Velocidade de desenvolvimento
-- Documentação do projeto (README.md)
-- Performance
-- Caso não tenha concluído o desafio, envie mesmo assim, queremos saber até onde você chegou
-
-### Boa sorte!
