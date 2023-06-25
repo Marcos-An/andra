@@ -10,6 +10,7 @@ import jwt from "jsonwebtoken";
 import api from "@/axios/api";
 import { setCookie } from "nookies";
 import { useRouter } from "next/navigation";
+import Head from "next/head";
 
 export default function Login() {
   const router = useRouter();

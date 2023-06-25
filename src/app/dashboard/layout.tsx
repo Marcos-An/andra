@@ -14,6 +14,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
   return (
     <section>
+      <title>Andra | Dashboard</title>
       <Header />
       <div className="max-w-[1600px] h-full m-auto py-7 px-3">{children}</div>
     </section>
