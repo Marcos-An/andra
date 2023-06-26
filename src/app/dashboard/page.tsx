@@ -206,7 +206,6 @@ export default function Dashboard() {
             className="bg-red mb-3"
             fullWidth
             onClick={() => {
-              console.log("delete");
               removeOperationalItems();
             }}
           >

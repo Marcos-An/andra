@@ -39,7 +39,7 @@ export default function Login() {
       })
       .then((res) => {
         setCookie(null, "auth-token", res.headers["x-token"], {
-          maxAge: 60 * 60 * 1, // 60 minutes
+          maxAge: 60 * 60 * 1,
         });
         setTimeout(() => {
           router.replace("/dashboard");
