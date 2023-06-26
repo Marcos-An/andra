@@ -40,7 +40,7 @@
 
 ## Sobre o projeto
 
-<a href="https://andra.vercel.app/" target="_blank">
+<a href="https://andra.vercel.app/" target="_blank" rel="noopener noreferrer">
   <img src="public/images/screen.png" alt="screen">
 </a> 
 
@@ -59,7 +59,7 @@ Sua aplicação deverá possuir:
 - Grade de pesquisa:
   - Deve ser ordenável por qualquer coluna, e possuir paginação de 20 itens.
 <br>
-<a href="https://andra.vercel.app/" target="_blank">
+<a href="https://andra.vercel.app/" target="_blank" rel="noopener noreferrer">
   Teste você mesmo!
 </a>
 
