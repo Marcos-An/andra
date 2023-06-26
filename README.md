@@ -59,7 +59,7 @@ Sua aplicação deverá possuir:
 - Grade de pesquisa:
   - Deve ser ordenável por qualquer coluna, e possuir paginação de 20 itens.
 <br>
-<a href="https://noemia.vercel.app/" target="_blank">
+<a href="https://andra.vercel.app/" target="_blank">
   Teste você mesmo!
 </a>
 
