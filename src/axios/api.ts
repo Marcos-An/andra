@@ -7,7 +7,7 @@ const headers = {
 };
 
 const api = axios.create({
-  baseURL: "https://andraerp-backend-sp-dev-vagas.rj.r.appspot.com",
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
   timeout: 1000,
   headers,
 });
