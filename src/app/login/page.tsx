@@ -19,7 +19,6 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
 
   const generateToken = () => {
-    console.log(process.env.NEXT_PUBLIC_API_SECRET_KEY);
     const secret = process.env.NEXT_PUBLIC_API_SECRET_KEY;
 
     const encodedPassword = jwt.sign(
