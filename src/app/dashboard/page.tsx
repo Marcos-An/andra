@@ -39,7 +39,6 @@ export default function Dashboard() {
     getItems(debouncedValue);
   }, [debouncedValue]);
 
-  //HANDLE SELECTION FROM CHECKBOX
   const selectItemToEdit = (operation: operationItemType) => {
     setItemSelected(operation);
     dialogEditRef.current?.handleModal();
@@ -75,7 +74,6 @@ export default function Dashboard() {
     setSelectedOperations([...opretations]);
   };
 
-  // HTTP REQUESTS
   const getItems = (value: string) => {
     api
       .post("/natoperacao/pesquisar", {
