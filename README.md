@@ -100,10 +100,10 @@ Sua aplicação deverá possuir:
    yarn || npm install 
    
    ```
-3. Rename `.env.local.example` to `.env.local` and fill the values:
+3. Renomeie `.env.local.example` apra `.env.local` e complete as variaveis:
    ```bash
-    NEXT_PUBLIC_API_URL=https://andraerp-backend-sp-dev-vagas.rj.r.appspot.com
-    NEXT_PUBLIC_API_SECRET_KEY=andra3RPW@8aZ 
+    NEXT_PUBLIC_API_URL=
+    NEXT_PUBLIC_API_SECRET_KEY=
    ```
    
 
