@@ -42,13 +42,13 @@ export default function Login() {
         setCookie(null, "auth-token", res.headers["x-token"], {
           maxAge: 60 * 60 * 1, // 60 minutes
         });
+        setTimeout(() => {
+          router.replace("/dashboard");
+        }, 500);
       })
       .finally(() => {
         setIsLoading(false);
       });
-    setTimeout(() => {
-      router.push("/dashboard");
-    }, 500);
   };
 
   return (
