@@ -77,7 +77,7 @@ Sua aplicação deverá possuir:
 - [x] Eclusão em lotes 
 - [x] Inclusão em lotes
 - [x] Dark theme
-- [ ] PWA
+- [x] PWA
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -100,7 +100,11 @@ Sua aplicação deverá possuir:
    yarn || npm install 
    
    ```
-3. Be happy!
+3. Rename `.env.local.example` to `.env.local` and fill the values:
+   ```bash
+    NEXT_PUBLIC_API_URL=https://andraerp-backend-sp-dev-vagas.rj.r.appspot.com
+    NEXT_PUBLIC_API_SECRET_KEY=andra3RPW@8aZ 
+   ```
    
 
 <p align="right">(<a href="#top">back to top</a>)</p>
